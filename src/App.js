@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router } from "react-router-dom";
+import Header from './components/Main/Header';
+import Aside from './components/Main/Aside';
+import Footer from './components/Main/Footer';
+import Routes from './routes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <article>
+        {/* 主体头部 */}
+        <header>
+          <Header />
+        </header>
+        {/* 内容区域 */}
+        <main>
+          {/* 路由切换 */}
+          <section>
+            <Routes />
+          </section>
+          {/* 侧边栏 */}
+          <aside>
+            <Aside />
+          </aside>
+        </main>
+        {/* 主体底部 */}
+        <footer>
+          <Footer/>
+        </footer>
+      </article>
+    </Router>
   );
 }
 

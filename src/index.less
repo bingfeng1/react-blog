@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    background: rgb(241, 241, 241);
+
+    // 主体布局
+    &>article {
+        &>header {
+            margin-bottom: 20px;
+
+            // 头部样式
+            .header {
+
+                // 标题
+                .title {
+                    font-size: 1.1rem;
+                    color: rgba(0, 108, 255);
+                }
+
+                padding: 1rem 2rem;
+                background: white;
+            }
+        }
+
+        // 内容主体
+        &>main {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            margin: 20px;
+
+            // 路由主体
+            &>section {
+                background: white;
+                margin-right: 20px;
+                flex-grow: 1;
+            }
+
+            // 布局侧边栏
+            &>aside {
+                background: white;
+                flex-basis: 300px;
+            }
+        }
+
+        &>footer {
+            color: #888;
+            padding-bottom: 40px;
+        }
+
+    }
+}
+
+// 全局常量
+// 白色背景
+.bg-white {
+    background: white;
+}
+
+// 文字靠右
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+// flex布局
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
