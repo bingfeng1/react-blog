@@ -5,6 +5,7 @@ body {
 
 #root {
     background: rgb(241, 241, 241);
+    min-height: 100vh;
 
     // 主体布局
     &>article {
@@ -13,15 +14,15 @@ body {
 
             // 头部样式
             .header {
+                padding: .4rem 2rem;
+                background: white;
 
                 // 标题
                 .title {
-                    font-size: 1.1rem;
-                    color: rgba(0, 108, 255);
+                    font-size: 1.4rem;
+                    color: #007fff;
                 }
 
-                padding: 1rem 2rem;
-                background: white;
             }
         }
 
@@ -34,15 +35,20 @@ body {
 
             // 路由主体
             &>section {
-                background: white;
                 margin-right: 20px;
                 flex-grow: 1;
             }
 
             // 布局侧边栏
             &>aside {
+                padding: 2rem;
                 background: white;
-                flex-basis: 300px;
+                flex-basis: 280px;
+
+                // 姓名
+                .name {
+                    color: #007fff;
+                }
             }
         }
 
@@ -65,11 +71,29 @@ body {
     text-align: right;
 }
 
+// 文字颜色
+.gray {
+    // 除去第一个，其他颜色变灰
+    &>span:not(:first-child) {
+        color: rgb(201, 201, 201);
+        margin-left: 2rem;
+        font-weight: 400;
+        i{
+            margin-right: .4rem;
+        }
+    }
+}
+
 .center {
     text-align: center;
 }
 
 // flex布局
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 .flex-column-center {
     display: flex;

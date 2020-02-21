@@ -7,3 +7,24 @@
 - react全家桶
 - mongo
 - express
+
+# 使用的表结构
+// 个人信息
+name:String,    // 名字
+avatar:String,    // 头像地址（或者base64）
+socialContact:[
+    {
+        icon:String,    // 图标地址
+        iconfont:Boolean,    //是否来自阿里图标库
+        url:String,    //具体地址
+    }
+]
+
+// 文章信息
+title:String,    //文章标题
+date:Date,    //发布日期
+group:String,    //所在小组
+customerNum:Number,    //看过文章数量
+img:String,    //文章图片
+desc:String,    //描述
+isTop:Boolean,    //是否置顶

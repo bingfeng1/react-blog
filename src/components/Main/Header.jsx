@@ -1,14 +1,11 @@
 import React from 'react';
 import { Row, Col, Menu, Dropdown, Icon, message, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-    const onClick = ({ key }) => {
-        message.info(`Click on item ${key}`);
-    };
-
     const menu = () => {
         return (
-            <Menu onClick={onClick}>
+            <Menu>
                 <Menu.Item key="1">
                     <a target="_blank" rel="noopener noreferrer" href="http://www.baidu.com/">
                         1st menu item
@@ -26,7 +23,9 @@ const Header = () => {
                 align="middle"
                 justify="space-between">
                 <Col span={8} className="title">
-                    冰风的博客
+                    <Link to="/">
+                        冰风的博客
+                    </Link>
                 </Col>
                 <Col span={8} className="right">
                     <Dropdown overlay={menu}>
