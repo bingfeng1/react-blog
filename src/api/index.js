@@ -1,14 +1,13 @@
-// import axios from 'axios'
-import { editor, articles } from './moni'
+import axios from 'axios'
 
+// 获取作者信息
 const reqEditor = () => {
-    // return axios.get()
-    return editor
+    return axios.get('/getEditor')
 }
 
+// 获取文章
 const reqArticles = () => {
-    // return axios.get()
-    return articles
+    return axios.get('/getArticles')
 }
 
 export {

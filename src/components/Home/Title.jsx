@@ -1,7 +1,9 @@
 import React from 'react'
 import { Tag, Icon } from 'antd'
 
-
+/**
+ * 文章标题
+ */
 const Title = ({ title, isTop, date, group, customerNum }) => {
     return (
         <div>

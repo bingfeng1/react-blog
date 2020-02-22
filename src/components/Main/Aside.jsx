@@ -2,13 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Avatar, Icon, Divider } from 'antd';
 import { reqEditor } from '../../api';
 
+/**
+ * 右侧个人信息列
+ */
 const Aside = () => {
     const [editor, setEditor] = useState({})
 
     useEffect(() => {
-        const result = reqEditor()
-        setEditor(() => {
-            return result
+        // 异步获取信息
+        reqEditor().then(result => {
+            const {data} = result
+            setEditor(() => {
+                return data
+            })
         })
     }, [editor])
 
@@ -16,8 +22,8 @@ const Aside = () => {
     const createIcon = (list = []) => {
         return list.map((item) => {
             return (
-                <a target="_blank" key={item.url} rel="noopener noreferrer" href={item.url} >
-                    <Icon type={item.icon} style={{ fontSize: '2rem', color: '#888'}} />
+                <a target="_blank" style={{margin:'0 10px'}} key={item.url} rel="noopener noreferrer" href={item.url} >
+                    <Icon type={item.icon} style={{ fontSize: '2rem', color: '#888' }} />
                 </a>
             )
         })

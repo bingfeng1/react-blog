@@ -1,7 +1,10 @@
 import React from 'react';
-import { Row, Col, Menu, Dropdown, Icon, message, Button } from 'antd';
+import { Row, Col, Menu, Dropdown, Icon, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
+/**
+ * 博客头部
+ */
 const Header = () => {
     const menu = () => {
         return (

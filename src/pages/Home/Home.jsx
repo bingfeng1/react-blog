@@ -5,14 +5,13 @@ import { Link } from 'react-router-dom'
 import Title from '../../components/Home/Title';
 import './home.less'
 
-
+// 首页内容
 const Home = () => {
     const [articles, setArticles] = useState([])
 
     useEffect(() => {
-        const result = reqArticles()
-        setArticles(() => {
-            return result
+        reqArticles().then(result => {
+            setArticles(result.data)
         })
     }, [articles])
 
@@ -20,7 +19,7 @@ const Home = () => {
         <div className="home">
             {
                 articles.map(item => {
-                    const { id, title, date, group, customerNum, img, desc, isTop } = item
+                    const { id, title, img, desc } = item
                     return (
                         <Card title={(
                             <Title {...item}></Title>

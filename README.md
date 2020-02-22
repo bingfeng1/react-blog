@@ -18,7 +18,8 @@ socialContact:[
         iconfont:Boolean,    //是否来自阿里图标库
         url:String,    //具体地址
     }
-]
+],
+customerNum:Number  // 总访问次数
 
 // 文章信息
 title:String,    //文章标题
