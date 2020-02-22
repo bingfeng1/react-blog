@@ -13,7 +13,7 @@ const Home = () => {
         reqArticles().then(result => {
             setArticles(result.data)
         })
-    }, [articles])
+    }, [])
 
     return (
         <div className="home">

@@ -16,7 +16,7 @@ const Aside = () => {
                 return data
             })
         })
-    }, [editor])
+    }, [])
 
     // 生成需要的图标链接
     const createIcon = (list = []) => {
