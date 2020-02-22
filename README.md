@@ -29,3 +29,11 @@ customerNum:Number,    //看过文章数量
 img:String,    //文章图片
 desc:String,    //描述
 isTop:Boolean,    //是否置顶
+
+# 前后端交互api
+- reqEditor：获取作者信息
+- reqArticles：获取文章信息
+
+# 页面介绍
+- Home：首页，大致展示博文描述
+- Detail：文章详情
