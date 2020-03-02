@@ -1,9 +1,20 @@
 import axios from 'axios'
 import { message } from 'antd'
+import { BASE_URL } from '../config/apiStr';
 
-axios.interceptors.response.use(response=>{
+// 在发送前，增加url前缀
+axios.interceptors.request.use(function (config) {
+    // 在发送请求之前做些什么
+    config.url = BASE_URL + config.url
+    return config;
+}, function (error) {
+    // 对请求错误做些什么
+    return Promise.reject(error);
+});
+
+axios.interceptors.response.use(response => {
     return response;
-},err=>{
+}, err => {
     return message.error(`出现错误：${err}`)
 })
 
