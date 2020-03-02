@@ -31,8 +31,10 @@ desc:String,    //描述
 isTop:Boolean,    //是否置顶
 
 # 前后端交互api
+所有的api都增加一个前缀，用于后端接口通讯
 - reqEditor：获取作者信息
 - reqArticles：获取文章信息
+- reqArticleDetail：获取文章详情
 
 # 页面介绍
 - Home：首页，大致展示博文描述
