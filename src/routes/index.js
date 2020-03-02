@@ -1,7 +1,8 @@
 import React from 'react'
 import Home from '../pages/Home/Home'
 import Detail from '../pages/Detail/Detail'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import NoFound from '../pages/404/404'
 
 const Routes = () => {
     // 配置路由
@@ -12,13 +13,12 @@ const Routes = () => {
             component: Home
         },
         {
-            path: '/detail/:id',
-            exact: true,
+            path: '/detail/:_id',
             component: Detail
         }
     ]
     return (
-        <>
+        <Switch>
             {
                 routes.map(item => {
                     return (
@@ -30,8 +30,8 @@ const Routes = () => {
                     )
                 })
             }
-            <Redirect to="/" />
-        </>
+            <Route component={NoFound}/>
+        </Switch>
     )
 }
 

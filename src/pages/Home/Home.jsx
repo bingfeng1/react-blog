@@ -19,7 +19,7 @@ const Home = () => {
         <div className="home">
             {
                 articles.map(item => {
-                    const { id, title, img, desc } = item
+                    const { _id, title, img, desc } = item
                     return (
                         <Card title={(
                             <Title {...item}></Title>
@@ -31,7 +31,7 @@ const Home = () => {
                                 {desc}
                             </div>
                             <footer className="right">
-                                <Link to={`/detail/${id}`}>
+                                <Link to={{ pathname: `/detail/${_id}`, state: item }}>
                                     <Button type="link">
                                         <Icon type="file" /> 查看全文 >
                                 </Button>
