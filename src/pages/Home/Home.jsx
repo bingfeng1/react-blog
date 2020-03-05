@@ -24,8 +24,8 @@ const Home = () => {
                         <Card title={(
                             <Title {...item}></Title>
                         )} key={title} style={{ marginBottom: '14px' }}>
-                            <div>
-                                {img}
+                            <div style={{textAlign:'center'}}>
+                                <img src={img} alt={img} style={{height:'300px'}}/>
                             </div>
                             <div>
                                 {desc}
