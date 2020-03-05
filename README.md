@@ -46,4 +46,4 @@ isTop:Boolean,    //是否置顶
 
 # 页面介绍
 - Home：首页，大致展示博文描述
-- Detail：文章详情
+- Detail：文章详情，markdown使用了 jspang.com 教程中的样式
