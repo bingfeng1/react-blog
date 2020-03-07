@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { Card } from 'antd'
+import { useParams } from 'react-router-dom'
+import { Card, Skeleton } from 'antd'
 import { reqArticleDetail } from '../../api'
 import Title from '../../components/Home/Title'
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
+import { getSession } from '../../utils'
+import { ARTICLE_ITEM } from '../../utils/type'
 
 /**
  * 文章详情，通过react-router-dom传入id和文章概括（其实也包含了id）
  */
 const Detail = (props) => {
-    const { _id } = props.match.params
-    const { state } = props.location
+    const { _id } = useParams()
+    const state = getSession(ARTICLE_ITEM)
 
+    // 文章内容
     const [article, setArticle] = useState("")
+
+    // 骨架屏
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         getArticleDetail(_id).then(context => {
             setArticle(context)
+            setLoading(false)
         })
     }, [_id])
 
@@ -53,6 +61,9 @@ const Detail = (props) => {
                 <Title {...state}></Title>
             )}
             className="detail">
+            <Skeleton
+                active
+                loading={loading} />
             <div dangerouslySetInnerHTML={{ __html: marked(article) }}>
             </div>
         </Card>

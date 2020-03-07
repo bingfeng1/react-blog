@@ -4,6 +4,8 @@ import { Card, Icon, Button } from 'antd';
 import { Link } from 'react-router-dom'
 import Title from '../../components/Home/Title';
 import './home.less'
+import { setSession } from '../../utils';
+import { ARTICLE_ITEM } from '../../utils/type';
 
 // 首页内容
 const Home = () => {
@@ -24,14 +26,17 @@ const Home = () => {
                         <Card title={(
                             <Title {...item}></Title>
                         )} key={title} style={{ marginBottom: '14px' }}>
-                            <div style={{textAlign:'center'}}>
-                                <img src={img} alt={img} style={{height:'300px'}}/>
+                            <div style={{ textAlign: 'center' }}>
+                                <img src={img} alt={img} style={{ height: '300px' }} />
                             </div>
                             <div>
                                 {desc}
                             </div>
                             <footer className="right">
-                                <Link to={{ pathname: `/detail/${_id}`, state: item }}>
+                                <Link to={location => {
+                                    setSession(ARTICLE_ITEM, item)
+                                    return { ...location, pathname: `/detail/${_id}` }
+                                }}>
                                     <Button type="link">
                                         <Icon type="file" /> 查看全文 >
                                 </Button>
