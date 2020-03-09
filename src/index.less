@@ -58,9 +58,24 @@ body {
 
             // 布局侧边栏
             &>aside {
-                padding: 2rem;
-                background: white;
                 flex-basis: 280px;
+                max-width: 280px;
+
+                // 个人信息
+                .editor-info {
+                    padding: 2rem;
+                    margin-bottom: 10px;
+                    background: white;
+                }
+
+                // 锚点
+                .anchor {
+                    margin-left: 0;
+
+                    &>div {
+                        margin: 4px;
+                    }
+                }
 
                 // 姓名
                 .name {
@@ -138,7 +153,8 @@ body {
 // 这里使用jspang.com中的样式，这里应该都是markdown样式了
 .markdown {
     font-size: 1rem;
-    h1{
+
+    h1 {
         font-size: 1.6rem;
     }
 
