@@ -38,9 +38,20 @@ const reqArticleDetail = (_id) => {
     })
 }
 
+// 获取分类信息
+const reqArticleGroup = () => {
+    return axios.get('/getArticleGroup')
+}
+
+// 获取额外链接
+const reqExtendLink = ()=>{
+    return axios.get('/getExtendLink')
+}
 
 export {
     reqEditor,
     reqArticles,
-    reqArticleDetail
+    reqArticleDetail,
+    reqArticleGroup,
+    reqExtendLink
 }

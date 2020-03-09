@@ -1,19 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Menu, Dropdown, Icon, Button } from 'antd';
 import { Link } from 'react-router-dom';
+import { reqExtendLink } from '../../api';
 
 /**
  * 博客头部
  */
 const Header = () => {
+    const [extendLink, setExtendLink] = useState([])
+    // 获取额外链接
+    useEffect(
+        () => {
+            if (extendLink.length === 0) {
+                (async () => {
+                    const { data = [] } = await reqExtendLink()
+                    setExtendLink(data)
+                })()
+            }
+        }, [extendLink]
+    )
+
     const menu = () => {
         return (
             <Menu>
-                <Menu.Item key="1">
-                    <a target="_blank" rel="noopener noreferrer" href="http://www.baidu.com/">
-                        1st menu item
-                </a>
-                </Menu.Item>
+                {
+                    extendLink.map(item => {
+                        if (item.url === document.location.pathname) {
+                            return null
+                        }
+                        return (
+                            <Menu.Item key={item.url}>
+                                <a target="_blank" rel="noopener noreferrer" href={item.url}>
+                                    {item.name}
+                                </a>
+                            </Menu.Item>
+                        )
+                    })
+                }
             </Menu>
         )
     }

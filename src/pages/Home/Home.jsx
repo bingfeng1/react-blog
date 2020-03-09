@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { reqArticles } from '../../api';
+import { reqArticles, reqArticleGroup } from '../../api';
 import { Card, Icon, Button } from 'antd';
 import { Link } from 'react-router-dom'
 import Title from '../../components/Home/Title';
@@ -12,8 +12,16 @@ const Home = () => {
     const [articles, setArticles] = useState([])
 
     useEffect(() => {
-        reqArticles().then(result => {
-            setArticles(result.data)
+        // 获取所有文章
+        reqArticles().then(async ({ data: result1 }) => {
+            // 获取所有种类
+            const { data: result2 } = await reqArticleGroup()
+            result1.map(item => {
+                // 找到种类的名称，并替换
+                item.group = result2.find(item2 => item2._id === item.group)?.name ?? ""
+                return { ...item }
+            })
+            setArticles(result1)
         })
     }, [])
 
@@ -29,11 +37,12 @@ const Home = () => {
                             <div style={{ textAlign: 'center' }}>
                                 <img src={img} alt={img} style={{ height: '300px' }} />
                             </div>
-                            <div>
+                            <div className="desc">
                                 {desc}
                             </div>
                             <footer className="right">
                                 <Link to={location => {
+                                    // 将内容放入session
                                     setSession(ARTICLE_ITEM, item)
                                     return { ...location, pathname: `/detail/${_id}` }
                                 }}>

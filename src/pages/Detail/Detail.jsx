@@ -64,7 +64,7 @@ const Detail = (props) => {
             <Skeleton
                 active
                 loading={loading} />
-            <div dangerouslySetInnerHTML={{ __html: marked(article) }}>
+            <div className="markdown" dangerouslySetInnerHTML={{ __html: marked(article) }}>
             </div>
         </Card>
     )
