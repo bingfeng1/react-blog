@@ -35,7 +35,7 @@ const Home = () => {
                             <Title {...item}></Title>
                         )} key={title} style={{ marginBottom: '14px' }}>
                             <div style={{ textAlign: 'center' }}>
-                                <img src={img} alt={img} style={{ height: '300px' }} />
+                                <img src={img} alt={img} style={{ maxHeight: '300px' }} />
                             </div>
                             <div className="desc">
                                 {desc}

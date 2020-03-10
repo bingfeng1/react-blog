@@ -86,7 +86,10 @@ body {
 
         &>footer {
             color: #888;
-            padding-bottom: 40px;
+            padding-bottom: 10px;
+            p{
+                margin-bottom: .2rem;
+            }
         }
 
     }
@@ -121,10 +124,16 @@ body {
 .gray {
 
     // 除去第一个，其他颜色变灰
-    &>span:not(:first-child) {
+    &>span {
+
         color: rgb(201, 201, 201);
-        margin-left: 2rem;
+        margin-right: 2rem;
         font-weight: 400;
+
+        &.top {
+            color: white;
+        }
+
 
         i {
             margin-right: .4rem;

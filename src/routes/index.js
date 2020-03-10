@@ -30,7 +30,7 @@ const Routes = () => {
                     )
                 })
             }
-            <Route component={NoFound}/>
+            <Route path="*" component={NoFound}/>
         </Switch>
     )
 }

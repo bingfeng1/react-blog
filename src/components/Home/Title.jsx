@@ -10,7 +10,7 @@ const Title = ({ title, isTop, date, group, customerNum }) => {
         <div>
             <div className="title">{title}</div>
             <div className="gray">
-                {isTop && <Tag color="#2db7f5"> 置顶</Tag>}
+                {isTop && <Tag className="top" color="#2db7f5"> 置顶</Tag>}
                 <span><Icon type="calendar" />{dateFormat(date).getYearMonthDate}</span>
                 <span><Icon type="tag" />{group}</span>
                 <span><Icon type="read" />{customerNum}</span>
